@@ -2085,23 +2085,23 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
       case DatePickerDateOrder.mdy:
         pickerBuilders = <_ColumnBuilder>[
           _buildMonthPicker,
-          _buildDayPicker,
+          // _buildDayPicker,
           _buildYearPicker
         ];
         columnWidths = <double?>[
           estimatedColumnWidths[_PickerColumnType.month.index],
-          estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
+          // estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
           estimatedColumnWidths[_PickerColumnType.year.index]
         ];
         break;
       case DatePickerDateOrder.dmy:
         pickerBuilders = <_ColumnBuilder>[
-          _buildDayPicker,
+          // _buildDayPicker,
           _buildMonthPicker,
           _buildYearPicker
         ];
         columnWidths = <double?>[
-          estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
+          // estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
           estimatedColumnWidths[_PickerColumnType.month.index],
           estimatedColumnWidths[_PickerColumnType.year.index]
         ];
@@ -2110,23 +2110,23 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
         pickerBuilders = <_ColumnBuilder>[
           _buildYearPicker,
           _buildMonthPicker,
-          _buildDayPicker
+          // _buildDayPicker
         ];
         columnWidths = <double?>[
           estimatedColumnWidths[_PickerColumnType.year.index],
           estimatedColumnWidths[_PickerColumnType.month.index],
-          estimatedColumnWidths[_PickerColumnType.dayOfMonth.index]
+          // estimatedColumnWidths[_PickerColumnType.dayOfMonth.index]
         ];
         break;
       case DatePickerDateOrder.ydm:
         pickerBuilders = <_ColumnBuilder>[
           _buildYearPicker,
-          _buildDayPicker,
+          // _buildDayPicker,
           _buildMonthPicker
         ];
         columnWidths = <double?>[
           estimatedColumnWidths[_PickerColumnType.year.index],
-          estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
+          // estimatedColumnWidths[_PickerColumnType.dayOfMonth.index],
           estimatedColumnWidths[_PickerColumnType.month.index]
         ];
         break;
