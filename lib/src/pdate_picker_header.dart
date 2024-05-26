@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 
 // NOTE: This is an internal implementation file. Even though there are public
@@ -96,13 +97,13 @@ class PDatePickerHeader extends StatelessWidget {
       color: onPrimarySurfaceColor,
     );
 
-    final Text help = Text(
+    final help = TextTr(
       helpText,
       style: helpStyle,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
-    final Text title = Text(
+    final title = TextTr(
       titleText,
       semanticsLabel: titleSemanticsLabel ?? titleText,
       style: titleStyle,

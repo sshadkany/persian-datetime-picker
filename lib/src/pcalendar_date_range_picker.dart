@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart' show DragStartBehavior;
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -431,7 +432,7 @@ class _DayHeaders extends StatelessWidget {
     for (int i = firstDayOfWeekIndex; true; i = (i + 1) % 7) {
       final String weekday = narrowWeekdays[i];
       result.add(ExcludeSemantics(
-        child: Center(child: Text(weekday, style: headerStyle)),
+        child: Center(child: TextTr(weekday, style: headerStyle)),
       ));
       if (i == (firstDayOfWeekIndex - 1) % 7) break;
     }
@@ -818,7 +819,7 @@ class _MonthItemState extends State<_MonthItem> {
           label: semanticLabel,
           selected: isSelectedDayStart || isSelectedDayEnd,
           child: ExcludeSemantics(
-            child: Text(formatDecimal(day), style: itemStyle),
+            child: TextTr(formatDecimal(day), style: itemStyle),
           ),
         ),
       ),
@@ -933,7 +934,7 @@ class _MonthItemState extends State<_MonthItem> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           alignment: AlignmentDirectional.centerStart,
           child: ExcludeSemantics(
-            child: Text(
+            child: TextTr(
               widget.displayedMonth.formatMonthYear(),
               style: textTheme.bodyMedium!
                   .apply(color: themeData.colorScheme.onSurface),

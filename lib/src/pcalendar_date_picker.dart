@@ -5,6 +5,7 @@
 import 'dart:math' as math;
 
 import './pdate_utils.dart';
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -265,7 +266,7 @@ class _CalendarDatePickerState extends State<PCalendarDatePicker> {
         // Put the mode toggle button on top so that it won't be covered up by the _MonthPicker
         _DatePickerModeToggleButton(
           mode: _mode,
-          title: formatMonthYear(_currentDisplayedMonthDate!),
+          title: formatFullMonthYear(_currentDisplayedMonthDate!),
           onTitlePressed: () {
             // Toggle the day/year mode.
             _handleModeChanged(_mode == PDatePickerMode.day
@@ -359,7 +360,7 @@ class _DatePickerModeToggleButtonState
                     child: Row(
                       children: <Widget>[
                         Flexible(
-                          child: Text(
+                          child: TextTr(
                             widget.title,
                             overflow: TextOverflow.ellipsis,
                             style: textTheme.labelLarge?.copyWith(
@@ -699,7 +700,7 @@ class _DayPicker extends StatelessWidget {
         Widget dayWidget = Container(
           decoration: decoration,
           child: Center(
-            child: Text(formatDecimal(day),
+            child: TextTr(formatDecimal(day),
                 style: dayStyle!.apply(color: dayColor)),
           ),
         );
@@ -798,7 +799,7 @@ class _DayHeaders extends StatelessWidget {
     for (int i = firstDayOfWeekIndex; true; i = (i + 1) % 7) {
       final String weekday = narrowWeekdays[i];
       result.add(ExcludeSemantics(
-        child: Center(child: Text(weekday, style: headerStyle)),
+        child: Center(child: TextTr(weekday, style: headerStyle)),
       ));
       if (i == (firstDayOfWeekIndex - 1) % 7) break;
     }
@@ -948,7 +949,7 @@ class _YearPickerState extends State<_YearPicker> {
         child: Center(
           child: Semantics(
             selected: isSelected,
-            child: Text(year.toString(), style: itemStyle),
+            child: TextTr(year.toString(), style: itemStyle),
           ),
         ),
       ),

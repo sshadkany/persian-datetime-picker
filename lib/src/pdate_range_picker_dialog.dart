@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/src/date/shamsi_date.dart';
 
@@ -513,7 +514,7 @@ class _CalendarRangePickerDialog extends StatelessWidget {
               minWidth: 64,
               child: TextButton(
                 onPressed: onConfirm,
-                child: Text(confirmText, style: saveButtonStyle),
+                child: TextTr(confirmText, style: saveButtonStyle),
               ),
             ),
             const SizedBox(width: 8),
@@ -530,7 +531,7 @@ class _CalendarRangePickerDialog extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      TextTr(
                         helpText,
                         style: textTheme.labelSmall!.apply(
                           color: headerForeground,
@@ -539,18 +540,18 @@ class _CalendarRangePickerDialog extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: <Widget>[
-                          Text(
+                          TextTr(
                             startDateText,
                             style: startDateStyle,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          Text(
+                          TextTr(
                             ' – ',
                             style: startDateStyle,
                           ),
                           Flexible(
-                            child: Text(
+                            child: TextTr(
                               endDateText,
                               style: endDateStyle,
                               maxLines: 1,
@@ -671,11 +672,11 @@ class _PInputDateRangePickerDialog extends StatelessWidget {
         children: <Widget>[
           TextButton(
             onPressed: onCancel,
-            child: Text(cancelText),
+            child: TextTr(cancelText),
           ),
           TextButton(
             onPressed: onConfirm,
-            child: Text(confirmText),
+            child: TextTr(confirmText),
           ),
         ],
       ),

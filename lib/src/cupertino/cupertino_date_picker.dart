@@ -7,6 +7,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:persian_datetime_picker/src/cupertino/strings.dart';
 
+import '../farsi_text.dart';
 import 'picker.dart';
 
 // simulators with "Debug View Hierarchy".
@@ -760,7 +761,7 @@ class _CupertinoTimerPickerState extends State<CupertinoTimerPicker> {
           child: Baseline(
             baseline: numberLabelBaseline,
             baselineType: TextBaseline.alphabetic,
-            child: Text(
+            child: TextTr(
               text,
               style: const TextStyle(
                 fontSize: _kTimerPickerLabelFontSize,
@@ -785,7 +786,7 @@ class _CupertinoTimerPickerState extends State<CupertinoTimerPicker> {
       child: Container(
         width: numberLabelWidth,
         alignment: AlignmentDirectional.centerEnd.resolve(textDirection),
-        child: Text(text,
+        child: TextTr(text,
             softWrap: false, maxLines: 1, overflow: TextOverflow.visible),
       ),
     );
@@ -1354,10 +1355,10 @@ class _CupertinoDatePickerDateTimeState
           final Jalali now = Jalali.now();
 
           if (widget.minimumDate?.isAfter(rangeEnd) == true) {
-            return const Text('invalid date');
+            return const TextTr('invalid date');
           }
           if (widget.maximumDate?.isAfter(rangeStart) == false) {
-            return const Text('invalid date');
+            return const TextTr('invalid date');
           }
 
           final String dateText = rangeStart ==
@@ -1371,7 +1372,7 @@ class _CupertinoDatePickerDateTimeState
 
           return itemPositioningBuilder(
             context,
-            Text(dateText, style: _themeTextStyle(context)),
+            TextTr(dateText, style: _themeTextStyle(context)),
           );
         },
       ),
@@ -1455,7 +1456,7 @@ class _CupertinoDatePickerDateTimeState
 
             return itemPositioningBuilder(
               context,
-              Text(
+              TextTr(
                 StringsText.datePickerHour(displayHour),
                 semanticsLabel:
                     StringsText.datePickerHourSemanticsLabel(displayHour),
@@ -1510,7 +1511,7 @@ class _CupertinoDatePickerDateTimeState
 
           return itemPositioningBuilder(
             context,
-            Text(
+            TextTr(
               StringsText.datePickerMinute(minute),
               semanticsLabel:
                   StringsText.datePickerMinuteSemanticsLabel(minute),
@@ -1551,7 +1552,7 @@ class _CupertinoDatePickerDateTimeState
         children: List<Widget>.generate(2, (int index) {
           return itemPositioningBuilder(
             context,
-            Text(
+            TextTr(
               index == 0
                   ? StringsText.anteMeridiemAbbreviation
                   : StringsText.postMeridiemAbbreviation,
@@ -1893,7 +1894,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
           final int day = index + 1;
           return itemPositioningBuilder(
             context,
-            Text(
+            TextTr(
               StringsText.datePickerDayOfMonth(day),
               style:
                   _themeTextStyle(context, isValid: day <= daysInCurrentMonth),
@@ -1946,7 +1947,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
 
           return itemPositioningBuilder(
             context,
-            Text(
+            TextTr(
               StringsText.datePickerMonth(month),
               style: _themeTextStyle(context, isValid: !isInvalidMonth),
             ),
@@ -1987,10 +1988,10 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
           }
         },
         itemBuilder: (BuildContext context, int year) {
-          if (year < widget.minimumYear) return const Text('invalid date');
+          if (year < widget.minimumYear) return const TextTr('invalid date');
 
           if (widget.maximumYear != null && year > widget.maximumYear!) {
-            return const Text('invalid date');
+            return const TextTr('invalid date');
           }
 
           final bool isValidYear = (widget.minimumDate == null ||
@@ -1999,7 +2000,7 @@ class _CupertinoDatePickerDateState extends State<_CupertinoDatePickerDate> {
 
           return itemPositioningBuilder(
             context,
-            Text(
+            TextTr(
               StringsText.datePickerYear(year),
               style: _themeTextStyle(context, isValid: isValidYear),
             ),

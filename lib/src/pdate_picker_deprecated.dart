@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart' show DragStartBehavior;
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:persian_datetime_picker/src/date/shamsi_date.dart';
@@ -148,7 +149,7 @@ class PDayPicker extends StatelessWidget {
     for (int i = firstDayOfWeekIndex; true; i = (i + 1) % 7) {
       final String weekday = narrowWeekdays[i];
       result.add(ExcludeSemantics(
-        child: Center(child: Text(weekday, style: headerStyle)),
+        child: Center(child: TextTr(weekday, style: headerStyle)),
       ));
       if (i == (firstDayOfWeekIndex - 1) % 7) break;
     }
@@ -297,7 +298,7 @@ class PDayPicker extends StatelessWidget {
               selected: isSelectedDay,
               sortKey: OrdinalSortKey(day.toDouble()),
               child: ExcludeSemantics(
-                child: Text(formatDecimal(day), style: itemStyle),
+                child: TextTr(formatDecimal(day), style: itemStyle),
               ),
             ),
           ),
@@ -326,7 +327,7 @@ class PDayPicker extends StatelessWidget {
             height: _kDayPickerRowHeight,
             child: Center(
               child: ExcludeSemantics(
-                child: Text(
+                child: TextTr(
                   displayedMonth.formatMonthYear(),
                   style: themeData.textTheme.bodyLarge,
                 ),
@@ -733,7 +734,7 @@ class _YearPickerState extends State<PYearPicker> {
           child: Center(
             child: Semantics(
               selected: isSelected,
-              child: Text(year.toString(), style: itemStyle),
+              child: TextTr(year.toString(), style: itemStyle),
             ),
           ),
         );

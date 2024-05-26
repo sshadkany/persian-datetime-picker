@@ -1,3 +1,4 @@
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/src/date/shamsi_date.dart';
 

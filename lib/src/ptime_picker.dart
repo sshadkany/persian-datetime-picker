@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -213,7 +214,7 @@ class _TimePickerHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const SizedBox(height: 16.0),
-          Text(
+          TextTr(
             helpText,
             style: TimePickerTheme.of(context).helpTextStyle ??
                 themeData.textTheme.labelSmall,
@@ -269,7 +270,7 @@ class _HourMinuteControl extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Center(
-            child: Text(
+            child: TextTr(
               text,
               style: style.copyWith(
                   color: MaterialStateProperty.resolveAs(textColor, states)),
@@ -388,7 +389,7 @@ class _StringFragment extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6.0),
         child: Center(
-          child: Text(
+          child: TextTr(
             _stringFragmentValue(timeOfDayFormat),
             style: hourMinuteStyle.apply(
                 color: MaterialStateProperty.resolveAs(
@@ -569,7 +570,7 @@ class _DayPeriodControl extends StatelessWidget {
         child: Semantics(
           selected: amSelected,
           child: Center(
-            child: Text(
+            child: TextTr(
               'ق.ظ',
               style: amStyle,
               textScaleFactor: buttonTextScaleFactor,
@@ -586,7 +587,7 @@ class _DayPeriodControl extends StatelessWidget {
         child: Semantics(
           selected: pmSelected,
           child: Center(
-            child: Text(
+            child: TextTr(
               'ب.ظ',
               style: pmStyle,
               textScaleFactor: buttonTextScaleFactor,
@@ -1427,7 +1428,7 @@ class _TimePickerInputState extends State<_TimePickerInput> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
+          TextTr(
             widget.helpText,
             style: TimePickerTheme.of(context).helpTextStyle ??
                 theme.textTheme.labelSmall,
@@ -1467,7 +1468,7 @@ class _TimePickerInputState extends State<_TimePickerInput> {
                           const SizedBox(height: 8.0),
                           if (!hourHasError && !minuteHasError)
                             ExcludeSemantics(
-                              child: Text(
+                              child: TextTr(
                                 'ساعت',
                                 style: theme.textTheme.bodySmall,
                                 maxLines: 1,
@@ -1496,7 +1497,7 @@ class _TimePickerInputState extends State<_TimePickerInput> {
                           const SizedBox(height: 8.0),
                           if (!hourHasError && !minuteHasError)
                             ExcludeSemantics(
-                              child: Text(
+                              child: TextTr(
                                 'دقیقه',
                                 style: theme.textTheme.bodySmall,
                                 maxLines: 1,
@@ -1522,7 +1523,7 @@ class _TimePickerInputState extends State<_TimePickerInput> {
             ],
           ),
           if (hourHasError || minuteHasError)
-            Text(
+            TextTr(
               'زمان معتبر نیست.',
               style: theme.textTheme.bodyMedium!
                   .copyWith(color: theme.colorScheme.error),
@@ -1983,11 +1984,11 @@ class _TimePickerDialogState extends State<_TimePickerDialog> {
               children: <Widget>[
                 TextButton(
                   onPressed: _handleCancel,
-                  child: Text(widget.cancelText),
+                  child: TextTr(widget.cancelText),
                 ),
                 TextButton(
                   onPressed: _handleOk,
-                  child: Text(widget.confirmText),
+                  child: TextTr(widget.confirmText),
                 ),
               ],
             ),

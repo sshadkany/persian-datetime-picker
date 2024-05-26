@@ -4,6 +4,7 @@
 
 import 'dart:math' as math;
 
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/src/date/shamsi_date.dart';
 
@@ -330,11 +331,11 @@ class _DatePickerDialogState extends State<_DatePickerDialog> {
       children: <Widget>[
         TextButton(
           onPressed: _handleCancel,
-          child: Text(widget.cancelText ?? 'لغو'),
+          child: TextTr(widget.cancelText ?? 'لغو'),
         ),
         TextButton(
           onPressed: _handleOk,
-          child: Text(widget.confirmText ?? 'تایید'),
+          child: TextTr(widget.confirmText ?? 'تایید'),
         ),
       ],
     );

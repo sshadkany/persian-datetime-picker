@@ -1,3 +1,4 @@
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/src/date/shamsi_date.dart';
 
@@ -195,6 +196,10 @@ String formatMonthYear(Jalali date) {
   return '${date.formatter.mm} ${date.formatter.yy}';
 }
 
+String formatFullMonthYear(Jalali date) {
+  return '${date.formatter.mN}/${date.formatter.yyyy}';
+}
+
 String formatFullDate(Jalali date) {
   return '${date.formatter.wN}, ${date.formatter.m} ${date.day}, ${date.year}';
 }
@@ -322,4 +327,20 @@ extension DateTimeExt on DateTime {
   }
 }
 
+String replaceFarsiNumber(String input) {
+  const english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const farsi = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+  for (int i = 0; i < english.length; i++) {
+    input = input.replaceAll(english[i], farsi[i]);
+  }
+
+  return input;
+}
+
+extension FarsiNumberEX on String{
+  String get farsiNumber{
+    return replaceFarsiNumber(this);
+  }
+}
 

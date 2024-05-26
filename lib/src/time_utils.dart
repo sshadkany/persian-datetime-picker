@@ -1,3 +1,4 @@
+import 'farsi_text.dart';
 import 'package:flutter/material.dart';
 
 import 'pdate_utils.dart';
